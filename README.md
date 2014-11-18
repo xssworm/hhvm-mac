@@ -30,19 +30,19 @@ Our [FAQ](https://github.com/facebook/hhvm/wiki/FAQ) has answers to many common 
 
 
 
-### 1) Install homebrew
+### 1. Install homebrew
 
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-### 2) Tap additional repositories
+### 2. Tap additional repositories
 
 ```sh
 brew tap homebrew/versions
 ```
 
-### 3) Install dependencies
+### 3. Install dependencies
 ```sh
 brew install freetype gettext cmake git libtool mcrypt oniguruma re2c     \
              autoconf libelf readline automake mysql-connector-c pcre     \
@@ -60,13 +60,13 @@ brew install \
   https://gist.github.com/sgolemon/8fdc7e2afcd73a960b9c/raw/1211e21151ed3443dbc027e5383fb49e9eb1ab91/jemallocfb.rb
 ```
 
-### 4) Get HHVM
+### 4. Get HHVM
 
 ```sh
 git clone --recursive git://github.com/xssworm/hhvm-mac.git
 ```
 
-### 5) Build HHVM
+### 5. Build HHVM
 
 ```sh
 cd hhvm
@@ -120,7 +120,7 @@ make -j4
 sudo ln -s $(pwd)/hphp/hhvm/hhvm /usr/bin/hhvm
 ```
 
-### 6) Test HHVM
+### 6. Test HHVM
 
 ```sh
 hhvm --version
@@ -140,17 +140,8 @@ If you want to host a website:
 * Visit your site at http://.../index.php
 
 
-## Contributing
-
-We'd love to have your help in making HHVM better. If you're interested, please read our [guide to contributing](CONTRIBUTING.md).
-
 ## License
 
 HHVM is licensed under the PHP and Zend licenses except as otherwise noted.
 
 The Hack typechecker (`hphp/hack`) is licensed under the BSD license (`hphp/hack/LICENSE`) with an additional grant of patent rights (`hphp/hack/PATENTS`) except as otherwise noted.
-
-
-## Reporting Crashes
-
-See [Reporting Crashes](https://github.com/facebook/hhvm/wiki/Reporting-Crashes) for helpful tips on how to report crashes in an actionable manner.
