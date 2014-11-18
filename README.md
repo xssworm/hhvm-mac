@@ -30,19 +30,19 @@ Our [FAQ](https://github.com/facebook/hhvm/wiki/FAQ) has answers to many common 
 
 
 
-### Install homebrew
+### 1) Install homebrew
 
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-### Tap additional repositories
+### 2) Tap additional repositories
 
 ```sh
 brew tap homebrew/versions
 ```
 
-### Install dependencies
+### 3) Install dependencies
 ```sh
 brew install freetype gettext cmake git libtool mcrypt oniguruma re2c     \
              autoconf libelf readline automake mysql-connector-c pcre     \
@@ -60,13 +60,13 @@ brew install \
   https://gist.github.com/sgolemon/8fdc7e2afcd73a960b9c/raw/1211e21151ed3443dbc027e5383fb49e9eb1ab91/jemallocfb.rb
 ```
 
-### Get HHVM
+### 4) Get HHVM
 
 ```sh
 git clone --recursive git://github.com/xssworm/hhvm-mac.git
 ```
 
-### Build HHVM
+### 5) Build HHVM
 
 ```sh
 cd hhvm
@@ -120,7 +120,7 @@ make -j4
 sudo ln -s $(pwd)/hphp/hhvm/hhvm /usr/bin/hhvm
 ```
 
-### Test HHVM
+### 6) Test HHVM
 
 ```sh
 hhvm --version
