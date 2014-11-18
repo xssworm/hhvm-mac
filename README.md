@@ -117,6 +117,13 @@ cmake . \
     -DLIBSQLITE3_INCLUDE_DIR=$(brew --prefix sqlite)/include \
     -DLIBSQLITE3_LIBRARY=$(brew --prefix sqlite)/lib/libsqlite3.0.dylib
 make -j4
+sudo ln -s $(pwd)/hphp/hhvm/hhvm /usr/bin/hhvm
+```
+
+### Test HHVM
+
+```sh
+hhvm --version
 ```
 
 
