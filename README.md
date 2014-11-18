@@ -18,7 +18,7 @@ Our [FAQ](https://github.com/facebook/hhvm/wiki/FAQ) has answers to many common 
 
 ## Installing
 
-CheckList
+### CheckList
 ==========
 
 - CMake >= 3.0.2
@@ -27,8 +27,8 @@ CheckList
 - Boost 1.55+ and is compiled with GCC 4.8
 - JeMalloc compiled with patch.
 - OCaml 3/4 (hack requirement)
-Install by hand
-===============
+
+
 
 ### Install homebrew
 
