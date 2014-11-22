@@ -1068,6 +1068,19 @@ CallDest CodeGenerator::callDestDbl(const IRInstruction* inst) const {
   return { DestType::Dbl, loc.reg(0) };
 }
 
+
+// We can't really compile using the compact call if the address of the array
+// vtable is in high memory (there is only an encoding for 32bit displacement).
+// This can happen, for example, if we have address space randomization
+// enabled.  For now just punt these cases.
+template<class Arg>
+CppCall CodeGenerator::arrayCallIfLowMem(Arg vtable) const {
+  if (!deltaFits(reinterpret_cast<uintptr_t>(vtable), sz::dword)) {
+    CG_PUNT(ArrayDataVtableHighMemory);
+  }
+  return CppCall::array(vtable);
+}
+
 void
 CodeGenerator::cgCallHelper(Vout& v, CppCall call, const CallDest& dstInfo,
                             SyncOptions sync, ArgGroup& args) {
@@ -5289,7 +5302,7 @@ void CodeGenerator::cgAKExists(IRInstruction* inst) {
        ? CppCall::direct(obj_int_helper)
        : CppCall::direct(obj_str_helper))
     : (key->isA(Type::Int)
-       ? CppCall::array(&g_array_funcs.existsInt)
+       ? arrayCallIfLowMem(&g_array_funcs.existsInt)
        : CppCall::direct(arr_str_helper));
 
   cgCallHelper(v, helper_func,
