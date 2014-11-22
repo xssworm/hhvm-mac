@@ -133,10 +133,11 @@ hhvm --version
 You can run standalone programs just by passing them to hhvm: `hhvm my_script.php`.
 
 If you want to host a website:
-* Install your favorite webserver
-* Install our [package](https://github.com/facebook/hhvm/wiki/Prebuilt%20Packages%20for%20HHVM)
+* Install your favorite webserver nginx or apache
+* Install hhvm for Mac OS X 10.8.x / 10.9.x
 * Start your webserver
-* Run `sudo /etc/init.d/hhvm start`
+* Go to the website root directory `cd /Users/account/Sites`
+* Run `hhvm --mode server --user _www -vServer.Type=fastcgi -vServer.Port=9898`
 * Visit your site at http://.../index.php
 
 
